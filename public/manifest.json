@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "TasteSwap - Return Redirector",
+  "version": "0.1",
+  "description": "Swap items instead of returning - based on cultural taste",
+  "permissions": ["storage", "scripting", "tabs", "activeTab"],
+  "host_permissions": [
+    "https://www.amazon.in/*",
+    "https://www.flipkart.com/*"
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.com/*",
+        "https://www.amazon.in/*",
+        "https://www.flipkart.com/*"
+      ],
+      "js": ["content/index.js"]
+    }
+  ],
+    "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/tasteIcon.png",
+    "32": "icons/tasteIcon.png",
+    "48": "icons/tasteIcon.png",
+    "128": "icons/tasteIcon.png"
+  }
+}
